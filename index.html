@@ -104,33 +104,48 @@
         <!-- Main Content: Calculator and Pricing Table -->
         <div class="flex flex-col lg:flex-row gap-6">
             <!-- Calculator Section -->
-            <div class="p-6 rounded-lg w-full lg:w-1/2 calculator">
-                <h1 class="text-2xl font-bold mb-4 text-center">TRIP's ShipBob Fulfilment Cost Calculator</h1>
-                
-                <div class="mb-4">
-                    <label for="weight" class="block text-sm font-medium">Weight (kg)</label>
-                    <input type="number" id="weight" min="0" step="0.1" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50" placeholder="Enter weight in kg">
-                </div>
+<div class="p-6 rounded-lg w-full max-w-lg calculator">
+    <h1 class="text-2xl font-bold mb-4 text-center">TRIP's ShipBob Fulfilment Cost Calculator</h1>
+    
+    <div class="mb-4">
+        <label for="weight" class="block text-sm font-medium">Weight (kg)</label>
+        <input type="number" id="weight" min="0" step="0.1" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50" placeholder="Enter weight in kg">
+    </div>
 
-                <div class="mb-4">
-                    <label for="units" class="block text-sm font-medium">Number of Units Picked</label>
-                    <input type="number" id="units" min="1" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50" placeholder="Enter number of units">
-                </div>
+    <div class="mb-4">
+        <label for="units" class="block text-sm font-medium">Number of Units Picked</label>
+        <input type="number" id="units" min="1" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50" placeholder="Enter number of units">
+    </div>
 
-                <div class="mb-4">
-                    <label for="packaging" class="block text-sm font-medium">Packaging Type</label>
-                    <select id="packaging" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50">
-                        <option value="0">None</option>
-                        <option value="0">TRIP's Own Packaging (£0.00)</option>
-                        <option value="0.50">Box 1 (£0.50)</option>
-                        <option value="0.90">Box 2 (£0.90)</option>
-                    </select>
-                </div>
+    <div class="mb-4">
+        <label for="packaging" class="block text-sm font-medium">Packaging Type</label>
+        <select id="packaging" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50">
+            <option value="0">None</option>
+            <option value="0">TRIP's Own Packaging (£0.00)</option>
+            <option value="0.50">Box 1 (£0.50)</option>
+            <option value="0.90">Box 2 (£0.90)</option>
+        </select>
+    </div>
 
-                <button onclick="calculateCost()" class="w-full text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">Calculate TRIP's Cost</button>
+    <!-- New Dropdown Menu for Carrier Service -->
+    <div class="mb-4">
+        <label for="carrier" class="block text-sm font-medium">Carrier Service</label>
+        <select id="carrier" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50">
+            <option value="Dynamic Standard">Dynamic Standard</option>
+            <option value="Dynamic Express">Dynamic Express</option>
+            <option value="Royal Mail Tracked 48">Royal Mail Tracked 48</option>
+            <option value="Royal Mail Tracked 24">Royal Mail Tracked 24</option>
+            <option value="Evri Standard">Evri Standard</option>
+            <option value="Evri Express">Evri Express</option>
+            <option value="Royal Mail Large Letter 48">Royal Mail Large Letter 48</option>
+            <option value="Royal Mail Large Letter 24">Royal Mail Large Letter 24</option>
+        </select>
+    </div>
 
-                <div id="result" class="mt-4 text-center text-lg font-semibold"></div>
-            </div>
+    <button onclick="calculateCost()" class="w-full text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">Calculate TRIP's Cost</button>
+
+    <div id="result" class="mt-4 text-center text-lg font-semibold"></div>
+</div>
 
             <!-- Pricing Table Section -->
             <div class="bg-white p-6 rounded-lg shadow-lg w-full lg:w-1/2">
@@ -359,31 +374,32 @@
 
     <script>
         function calculateCost() {
-            const weight = parseFloat(document.getElementById('weight').value) || 0;
-            const units = parseInt(document.getElementById('units').value) || 1;
-            const packaging = parseFloat(document.getElementById('packaging').value) || 0;
+    const weight = parseFloat(document.getElementById('weight').value) || 0;
+    const units = parseInt(document.getElementById('units').value) || 1;
+    const packaging = parseFloat(document.getElementById('packaging').value) || 0;
+    const carrier = document.getElementById('carrier').value;
 
-            // Shipping cost based on weight (includes 1 pick)
-            let shippingCost = 0;
-            if (weight <= 2) {
-                shippingCost = 2.85;
-            } else if (weight <= 15) {
-                shippingCost = 3.59;
-            } else if (weight <= 30) {
-                shippingCost = 5.10;
-            } else {
-                shippingCost = 5.10; // Default for weights > 30kg
-            }
+    // Shipping cost based on weight (includes 1 pick)
+    let shippingCost = 0;
+    if (weight <= 2) {
+        shippingCost = 2.85;
+    } else if (weight <= 15) {
+        shippingCost = 3.59;
+    } else if (weight <= 30) {
+        shippingCost = 5.10;
+    } else {
+        shippingCost = 5.10; // Default for weights > 30kg
+    }
 
-            // Additional unit pick cost (£0.25 per unit beyond the first)
-            const additionalUnitsCost = units > 1 ? (units - 1) * 0.25 : 0;
+    // Additional unit pick cost (£0.25 per unit beyond the first)
+    const additionalUnitsCost = units > 1 ? (units - 1) * 0.25 : 0;
 
-            // Total cost: shipping (includes 1 pick) + additional units + packaging
-            const totalCost = (shippingCost + additionalUnitsCost + packaging).toFixed(2);
+    // Total cost: shipping (includes 1 pick) + additional units + packaging
+    const totalCost = (shippingCost + additionalUnitsCost + packaging).toFixed(2);
 
-            // Display result
-            document.getElementById('result').innerHTML = `Total Cost for TRIP: £${totalCost}`;
-        }
+    // Display result with carrier service
+    document.getElementById('result').innerHTML = `Total Cost for TRIP: £${totalCost} <br> Carrier: ${carrier}`;
+}
     </script>
 </body>
 </html>
