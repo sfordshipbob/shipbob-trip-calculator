@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShipBob Fulfilment Calculator</title>
+    <title>TRIP's ShipBob Fulfilment Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -20,6 +20,58 @@
         details[open] > summary {
             background-color: #E6EFFA;
         }
+        /* Enhanced Calculator Design */
+        .calculator {
+            background-color: #2975CD;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+            transform: scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
+        .calculator:hover {
+            transform: scale(1.05);
+        }
+        .calculator h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .calculator label {
+            color: white;
+        }
+        .calculator input, .calculator select {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            color: #3D444F;
+        }
+        .calculator button {
+            background-color: #1E5AA3;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .calculator button:hover {
+            background-color: #174885;
+            transform: translateY(-2px);
+        }
+        .calculator #result {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        /* Transparent & Scalable Pricing Section */
+        .pricing-section {
+            background-color: #2975CD;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        .pricing-section h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .pricing-section p {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-[#F5F6F5] flex items-center justify-center min-h-screen p-4">
@@ -32,37 +84,37 @@
         <!-- Main Content: Calculator and Pricing Table -->
         <div class="flex flex-col lg:flex-row gap-6">
             <!-- Calculator Section -->
-            <div class="bg-white p-6 rounded-lg shadow-lg w-full lg:w-1/2">
-                <h1 class="text-2xl font-bold mb-4 text-center text-[#2975CD]">ShipBob Fulfilment Cost Calculator</h1>
+            <div class="p-6 rounded-lg w-full lg:w-1/2 calculator">
+                <h1 class="text-2xl font-bold mb-4 text-center">TRIP's ShipBob Fulfilment Cost Calculator</h1>
                 
                 <div class="mb-4">
-                    <label for="weight" class="block text-sm font-medium text-[#3D444F]">Weight (kg)</label>
-                    <input type="number" id="weight" min="0" step="0.1" class="mt-1 block w-full rounded-md border-[#3D444F] shadow-sm focus:border-[#2975CD] focus:ring focus:ring-[#2975CD] focus:ring-opacity-50" placeholder="Enter weight in kg">
+                    <label for="weight" class="block text-sm font-medium">Weight (kg)</label>
+                    <input type="number" id="weight" min="0" step="0.1" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50" placeholder="Enter weight in kg">
                 </div>
 
                 <div class="mb-4">
-                    <label for="units" class="block text-sm font-medium text-[#3D444F]">Number of Units Picked</label>
-                    <input type="number" id="units" min="1" class="mt-1 block w-full rounded-md border-[#3D444F] shadow-sm focus:border-[#2975CD] focus:ring focus:ring-[#2975CD] focus:ring-opacity-50" placeholder="Enter number of units">
+                    <label for="units" class="block text-sm font-medium">Number of Units Picked</label>
+                    <input type="number" id="units" min="1" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50" placeholder="Enter number of units">
                 </div>
 
                 <div class="mb-4">
-                    <label for="packaging" class="block text-sm font-medium text-[#3D444F]">Packaging Type</label>
-                    <select id="packaging" class="mt-1 block w-full rounded-md border-[#3D444F] shadow-sm focus:border-[#2975CD] focus:ring focus:ring-[#2975CD] focus:ring-opacity-50">
+                    <label for="packaging" class="block text-sm font-medium">Packaging Type</label>
+                    <select id="packaging" class="mt-1 block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50">
                         <option value="0">None</option>
-                        <option value="0">Own Packaging (£0.00)</option>
+                        <option value="0">TRIP's Own Packaging (£0.00)</option>
                         <option value="0.50">Box 1 (£0.50)</option>
                         <option value="0.90">Box 2 (£0.90)</option>
                     </select>
                 </div>
 
-                <button onclick="calculateCost()" class="w-full bg-[#2975CD] text-white py-2 px-4 rounded-md hover:bg-[#1E5AA3] focus:outline-none focus:ring-2 focus:ring-[#2975CD] focus:ring-offset-2">Calculate Cost</button>
+                <button onclick="calculateCost()" class="w-full text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">Calculate TRIP's Cost</button>
 
-                <div id="result" class="mt-4 text-center text-lg font-semibold text-[#2975CD]"></div>
+                <div id="result" class="mt-4 text-center text-lg font-semibold"></div>
             </div>
 
             <!-- Pricing Table Section -->
             <div class="bg-white p-6 rounded-lg shadow-lg w-full lg:w-1/2">
-                <h2 class="text-xl font-bold mb-4 text-[#2975CD]">Dynamic Carrier Selection Fulfilment Pricing - Standard</h2>
+                <h2 class="text-xl font-bold mb-4 text-[#2975CD]">TRIP's Dynamic Carrier Selection Fulfilment Pricing - Standard</h2>
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="bg-[#2975CD] text-white">
@@ -89,63 +141,43 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="mt-2 text-sm text-[#3D444F]">Additional picks: £0.25 each</p>
+                <p class="mt-2 text-sm text-[#3D444F]">Additional picks for TRIP: £0.25 each</p>
             </div>
         </div>
 
         <!-- Storage Section -->
         <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">Storage</h2>
+            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">TRIP's Storage</h2>
             <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">TRIP’s Storage Pricing</summary>
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Overview</summary>
                 <p class="text-[#3D444F] pl-4 pb-2">Each unique TRIP SKU will be stored in a unique location and charged monthly based on usage.</p>
             </details>
             <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">Storage Types</summary>
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Storage Types and Fees</summary>
                 <ul class="list-disc pl-8 text-[#3D444F] pb-2">
                     <li>3 storage types: pallet, large bin, and small bin</li>
                     <li>1 SKU per bin or pallet location</li>
                     <li>Pallets can be used as pickable locations</li>
+                    <li>Fees invoiced monthly, per product (SKU), and prorated daily</li>
+                    <li>Pallet: £24 (W x D x H: 80cm x 120cm x 160cm)</li>
+                    <li>Large Bin: £8 (W x D x H: 30cm x 90cm x 58cm)</li>
+                    <li>Small Bin: £4 (W x D x H: 17cm x 53cm x 27cm)</li>
                 </ul>
-            </details>
-            <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">Storage Fees</summary>
-                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
-                    <li>Fees invoiced monthly</li>
-                    <li>Storage fees are per product (SKU)</li>
-                    <li>Storage fees are prorated daily (as expressed as a % of the entire month on your invoice)</li>
-                    <li>Ex: 1 Pallet (£24) location was active for 15 days out of a 30-day month. This would be prorated and charged only £12, as the location was only used for half of the month.</li>
-                </ul>
-            </details>
-            <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">Pallets</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">£24</p>
-                <p class="text-[#3D444F] pl-4">W x D x H: 80cm x 120cm x 160cm</p>
-            </details>
-            <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">Large Bin</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">£8</p>
-                <p class="text-[#3D444F] pl-4">W x D x H: 30cm x 90cm x 58cm</p>
-            </details>
-            <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">Small Bin</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">£4</p>
-                <p class="text-[#3D444F] pl-4">W x D x H: 17cm x 53cm x 27cm</p>
             </details>
         </div>
 
         <!-- Receiving Section -->
         <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">Receiving</h2>
+            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">TRIP's Receiving</h2>
             <details class="mb-2 border-b border-[#3D444F]">
-                <summary class="text-lg font-medium text-[#2975CD] py-2">TRIP’s Receiving Pricing</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">Pricing for receiving inventory into TRIP’s fulfillment centers.</p>
+                <summary class="text-lg font-medium text-[#2975CD] py-2">TRIP's Receiving Pricing</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Pricing for receiving TRIP's inventory into our fulfillment centers.</p>
             </details>
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Per WRO Fee Includes</summary>
                 <ul class="list-disc pl-8 text-[#3D444F] pb-2">
                     <li>TRIP Inventory processing</li>
-                    <li>Photographing & scanning each new TRIP SKU</li>
+                    <li>Photographing & scanning each new SKU</li>
                     <li>Reporting any issues or discrepancies to the TRIP team</li>
                     <li>Entering products into your dashboard live</li>
                     <li>Stowing products into the most suitable & cost-effective storage locations</li>
@@ -202,34 +234,34 @@
             </details>
         </div>
 
-        <!-- What You'll Get For Free Section -->
+        <!-- What TRIP Will Get For Free Section -->
         <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
             <h2 class="text-xl font-bold mb-4 text-[#2975CD]">What TRIP Will Get For Free</h2>
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Integrations Library</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">Access to our ever-growing library of integrations with webstores, marketplaces, and the most popular ecommerce tools. All available for free.</p>
+                <p class="text-[#3D444F] pl-4 pb-2">Access to our ever-growing library of integrations with webstores, marketplaces, and the most popular ecommerce tools. All available for free to TRIP.</p>
                 <p class="text-[#3D444F] pl-4"><strong>100+ Integrations</strong></p>
                 <p class="text-[#3D444F] pl-4">Specifically for TRIP: Shopify, Gorgias & Klaviyo integrations</p>
             </details>
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Expand & Add Services</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">Expand into new countries or add additional services. No additional integration or setup fees involved.</p>
+                <p class="text-[#3D444F] pl-4 pb-2">TRIP can expand into new countries or add additional services with no additional integration or setup fees.</p>
             </details>
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Local Customer Support</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">Support available in your time-zone. With experts available on-hand to solve any issues quickly.</p>
+                <p class="text-[#3D444F] pl-4 pb-2">Support available in TRIP's time-zone. With experts available on-hand to solve any issues quickly.</p>
             </details>
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Award-Winning Technology</summary>
-                <p class="text-[#3D444F] pl-4 pb-2">Award-winning real-time technology to easily manage all fulfilment tasks and more.</p>
+                <p class="text-[#3D444F] pl-4 pb-2">Award-winning real-time technology for TRIP to easily manage all fulfilment tasks and more.</p>
             </details>
         </div>
 
         <!-- Transparent & Scalable Pricing Section -->
-        <div class="mt-6 bg-[#E6EFFA] p-6 rounded-lg shadow-lg border-l-4 border-[#2975CD]">
-            <h2 class="text-xl font-bold text-[#2975CD] mb-4">Transparent & Scalable Pricing</h2>
-            <p class="text-[#3D444F]">
-                <strong>No hidden costs!</strong> Enjoy <strong>no additional fees</strong> for software, user access, or monthly subscriptions. Our pricing is <strong>scalable</strong> to grow with your business, and we <strong>waive the full implementation fee</strong> to get you started seamlessly.
+        <div class="mt-6 pricing-section">
+            <h2 class="text-xl font-bold mb-4">Transparent & Scalable Pricing for TRIP</h2>
+            <p>
+                <strong>No hidden costs for TRIP!</strong> Enjoy <strong>no additional fees</strong> for software, user access, or monthly subscriptions. Our pricing is <strong>scalable</strong> to grow with TRIP's business, and we <strong>waive the full implementation fee</strong> to get TRIP started seamlessly.
             </p>
         </div>
     </div>
@@ -259,7 +291,7 @@
             const totalCost = (shippingCost + additionalUnitsCost + packaging).toFixed(2);
 
             // Display result
-            document.getElementById('result').innerHTML = `Total Cost: £${totalCost}`;
+            document.getElementById('result').innerHTML = `Total Cost for TRIP: £${totalCost}`;
         }
     </script>
 </body>
