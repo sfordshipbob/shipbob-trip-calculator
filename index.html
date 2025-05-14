@@ -72,6 +72,14 @@
         .pricing-section p {
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
+        /* Integrations Library Highlight */
+        .trip-integrations {
+            background-color: #E6EFFA;
+            border-left: 4px solid #2975CD;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body class="bg-[#F5F6F5] flex items-center justify-center min-h-screen p-4">
@@ -142,6 +150,17 @@
                     </tbody>
                 </table>
                 <p class="mt-2 text-sm text-[#3D444F]">Additional picks for TRIP: £0.25 each</p>
+                <p class="mt-2 text-sm text-[#3D444F] font-semibold">Total Fulfilment Pricing includes:</p>
+                <ul class="list-disc pl-8 text-[#3D444F] text-sm">
+                    <li>1st Pick for each order</li>
+                    <li>Tracked Shipping Cost</li>
+                    <li>Insurance for loss & damaged orders</li>
+                    <li>Use of TRIP's custom packaging for smaller orders</li>
+                </ul>
+                <p class="mt-2 text-sm text-[#3D444F] font-semibold">Additionally, we provide:</p>
+                <ul class="list-disc pl-8 text-[#3D444F] text-sm">
+                    <li>Dedicated packing stations for TRIP</li>
+                </ul>
             </div>
         </div>
 
@@ -159,10 +178,33 @@
                     <li>1 SKU per bin or pallet location</li>
                     <li>Pallets can be used as pickable locations</li>
                     <li>Fees invoiced monthly, per product (SKU), and prorated daily</li>
-                    <li>Pallet: £24 (W x D x H: 80cm x 120cm x 160cm)</li>
-                    <li>Large Bin: £8 (W x D x H: 30cm x 90cm x 58cm)</li>
-                    <li>Small Bin: £4 (W x D x H: 17cm x 53cm x 27cm)</li>
                 </ul>
+                <table class="w-full text-left border-collapse ml-4 mb-2">
+                    <thead>
+                        <tr class="bg-[#2975CD] text-white">
+                            <th class="p-2 border border-[#3D444F]">Storage Type</th>
+                            <th class="p-2 border border-[#3D444F]">Fee</th>
+                            <th class="p-2 border border-[#3D444F]">Dimensions (W x D x H)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-[#F0F7FF]">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Pallet</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£24</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">80cm x 120cm x 160cm</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Large Bin</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£8</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">30cm x 90cm x 58cm</td>
+                        </tr>
+                        <tr class="bg-[#F0F7FF]">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Small Bin</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£4</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">17cm x 53cm x 27cm</td>
+                        </tr>
+                    </tbody>
+                </table>
             </details>
         </div>
 
@@ -241,7 +283,9 @@
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Integrations Library</summary>
                 <p class="text-[#3D444F] pl-4 pb-2">Access to our ever-growing library of integrations with webstores, marketplaces, and the most popular ecommerce tools. All available for free to TRIP.</p>
                 <p class="text-[#3D444F] pl-4"><strong>100+ Integrations</strong></p>
-                <p class="text-[#3D444F] pl-4">Specifically for TRIP: Shopify, Gorgias & Klaviyo integrations</p>
+                <div class="trip-integrations">
+                    <p class="text-[#3D444F]"><strong>Specifically for TRIP:</strong> Shopify, Gorgias & Klaviyo integrations</p>
+                </div>
             </details>
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Expand & Add Services</summary>
@@ -254,6 +298,39 @@
             <details class="mb-2 border-b border-[#3D444F]">
                 <summary class="text-lg font-medium text-[#2975CD] py-2">Award-Winning Technology</summary>
                 <p class="text-[#3D444F] pl-4 pb-2">Award-winning real-time technology for TRIP to easily manage all fulfilment tasks and more.</p>
+            </details>
+        </div>
+
+        <!-- ShipBob's Turnaround Times and SLAs Section -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">ShipBob's Turnaround Times and SLAs</h2>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Order Fulfillment SLAs</summary>
+                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
+                    <li>B2C Order Fulfillment SLA Cutoff: 6:00 pm</li>
+                    <li>All B2B, FBA Prep, and Work Orders Fulfillment SLA Cutoff</li>
+                </ul>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Value-Added Services Work Order SLAs</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Each SLA listed below begins once the work order moves to Processing (subject to regional cutoff rules):</p>
+                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
+                    <li>Kitting (≤ 500 kits): 4 business days</li>
+                    <li>De‑kitting: 4 business days</li>
+                    <li>Case breakdown: 5 business days</li>
+                </ul>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Inventory Receiving</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Counted and stowed within 3 business days after Arrived (average is 1.2 days).</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Parcel Claims</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">SLA: 5 business days. ShipBob will contact the carrier, and TRIP would submit a claim through an easy process and have a portal to track and monitor.</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Warehouse Dropoffs and Pickups</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">All warehouse dropoffs and pickups must be booked at least 48 hours in advance via OpenDock.</p>
             </details>
         </div>
 
