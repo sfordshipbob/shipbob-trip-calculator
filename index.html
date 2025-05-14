@@ -10,6 +10,16 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        details > summary {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        details > summary:hover {
+            background-color: #E6EFFA;
+        }
+        details[open] > summary {
+            background-color: #E6EFFA;
+        }
     </style>
 </head>
 <body class="bg-[#F5F6F5] flex items-center justify-center min-h-screen p-4">
@@ -83,41 +93,139 @@
             </div>
         </div>
 
-        <!-- Fulfilment Details Section -->
+        <!-- Storage Section -->
         <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">Fulfilment Details</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-lg font-medium text-[#2975CD]">Total Fulfilment Pricing Includes:</h3>
-                    <ul class="list-disc pl-5 text-[#3D444F]">
-                        <li>1 pick per order</li>
-                        <li>Tracked 2-day shipping via Royal Mail (RM Tracked 48) & Evri (Tracked Standard)</li>
-                        <li>Insurance cover for loss and damage</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-medium text-[#2975CD]">Receiving Costs:</h3>
-                    <ul class="list-disc pl-5 text-[#3D444F]">
-                        <li>Carton (Single SKU): £2.75 per case</li>
-                        <li>Pallet (Single SKU): £5.50 per pallet</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-medium text-[#2975CD]">Storage Costs (Monthly, Prorated):</h3>
-                    <ul class="list-disc pl-5 text-[#3D444F]">
-                        <li>Pallets: £24</li>
-                        <li>Large Bin: £8</li>
-                        <li>Small Bin: £4</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-medium text-[#2975CD]">Processing Fee:</h3>
-                    <p class="text-[#3D444F]">Processing of all items in the return, restocking, or disposal: £2.50 per order</p>
-                </div>
-            </div>
+            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">Storage</h2>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">TRIP’s Storage Pricing</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Each unique TRIP SKU will be stored in a unique location and charged monthly based on usage.</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Storage Types</summary>
+                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
+                    <li>3 storage types: pallet, large bin, and small bin</li>
+                    <li>1 SKU per bin or pallet location</li>
+                    <li>Pallets can be used as pickable locations</li>
+                </ul>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Storage Fees</summary>
+                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
+                    <li>Fees invoiced monthly</li>
+                    <li>Storage fees are per product (SKU)</li>
+                    <li>Storage fees are prorated daily (as expressed as a % of the entire month on your invoice)</li>
+                    <li>Ex: 1 Pallet (£24) location was active for 15 days out of a 30-day month. This would be prorated and charged only £12, as the location was only used for half of the month.</li>
+                </ul>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Pallets</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">£24</p>
+                <p class="text-[#3D444F] pl-4">W x D x H: 80cm x 120cm x 160cm</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Large Bin</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">£8</p>
+                <p class="text-[#3D444F] pl-4">W x D x H: 30cm x 90cm x 58cm</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Small Bin</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">£4</p>
+                <p class="text-[#3D444F] pl-4">W x D x H: 17cm x 53cm x 27cm</p>
+            </details>
         </div>
 
-        <!-- No Additional Fees Section -->
+        <!-- Receiving Section -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">Receiving</h2>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">TRIP’s Receiving Pricing</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Pricing for receiving inventory into TRIP’s fulfillment centers.</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Per WRO Fee Includes</summary>
+                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
+                    <li>TRIP Inventory processing</li>
+                    <li>Photographing & scanning each new SKU</li>
+                    <li>Reporting any issues or discrepancies to the TRIP team</li>
+                    <li>Entering products into your dashboard live</li>
+                    <li>Stowing products into the most suitable & cost-effective storage locations</li>
+                </ul>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Delivery Type Pricing</summary>
+                <table class="w-full text-left border-collapse ml-4 mb-2">
+                    <thead>
+                        <tr class="bg-[#2975CD] text-white">
+                            <th class="p-2 border border-[#3D444F]">Delivery Type</th>
+                            <th class="p-2 border border-[#3D444F]">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-[#F0F7FF]">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Pallet – single SKU</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£5.50 per pallet</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Pallet – multi SKU, single SKU per carton</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£19.25 per pallet</td>
+                        </tr>
+                        <tr class="bg-[#F0F7FF]">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Carton – 20ft floor loaded container, single SKU cartons</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£225 flat fee</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Carton – 40ft floor loaded container, single SKU cartons</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F] text-[#3D444F]">£375 flat fee</td>
+                        </tr>
+                        <tr class="bg-[#F0F7FF]">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Carton – 53ft floor loaded container, single SKU cartons</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£500 flat fee</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Carton – Single SKU</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£2.75 per case</td>
+                        </tr>
+                        <tr class="bg-[#F0F7FF]">
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">Carton – multi SKU</td>
+                            <td class="p-2 border border-[#3D444F] text-[#3D444F]">£0.20 per stock unit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Per Unidentified Receiving Order (URO)</summary>
+                <ul class="list-disc pl-8 text-[#3D444F] pb-2">
+                    <li>£20 per URO Initiation Cost</li>
+                    <li>£20 per day URO fee</li>
+                    <li>Avoid UROs by following receiving guidelines and have WROs ready for faster URO resolution.</li>
+                </ul>
+            </details>
+        </div>
+
+        <!-- What You'll Get For Free Section -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-[#2975CD]">What You'll Get For Free</h2>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Integrations Library</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Access to our ever-growing library of integrations with webstores, marketplaces, and the most popular ecommerce tools. All available for free.</p>
+                <p class="text-[#3D444F] pl-4"><strong>100+ Integrations</strong></p>
+                <p class="text-[#3D444F] pl-4">Specifically for TRIP: Shopify, Gorgias & Klaviyo integrations</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Expand & Add Services</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Expand into new countries or add additional services. No additional integration or setup fees involved.</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Local Customer Support</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Support available in your time-zone. With experts available on-hand to solve any issues quickly.</p>
+            </details>
+            <details class="mb-2 border-b border-[#3D444F]">
+                <summary class="text-lg font-medium text-[#2975CD] py-2">Award-Winning Technology</summary>
+                <p class="text-[#3D444F] pl-4 pb-2">Award-winning real-time technology to easily manage all fulfilment tasks and more.</p>
+            </details>
+        </div>
+
+        <!-- Transparent & Scalable Pricing Section -->
         <div class="mt-6 bg-[#E6EFFA] p-6 rounded-lg shadow-lg border-l-4 border-[#2975CD]">
             <h2 class="text-xl font-bold text-[#2975CD] mb-4">Transparent & Scalable Pricing</h2>
             <p class="text-[#3D444F]">
