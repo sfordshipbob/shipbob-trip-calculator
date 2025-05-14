@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipBob Fulfilment Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <div class="flex justify-between mb-4">
+            <img src="https://seeklogo.com/images/S/ShipBob-logo-FEFAD29E8B-seeklogo.com.png" alt="ShipBob Logo" class="h-12 w-auto">
+            <img src="https://cdn.brandfetch.io/drink-trip.com/w/400/h/400/logo" alt="TRIP Logo" class="h-12 w-auto">
+        </div>
+        <h1 class="text-2xl font-bold mb-4 text-center">ShipBob Fulfilment Calculator</h1>
+        
+        <div class="mb-4">
+            <label for="weight" class="block text-sm font-medium text-gray-700">Weight (kg)</label>
+            <input type="number" id="weight" min="0" step="0.1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter weight in kg">
+        </div>
+
+        <div class="mb-4">
+            <label for="units" class="block text-sm font-medium text-gray-700">Number of Units Picked</label>
+            <input type="number" id="units" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter number of units">
+        </div>
+
+        <div class="mb-4">
+            <label for="packaging" class="block text-sm font-medium text-gray-700">Packaging Type</label>
+            <select id="packaging" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <option value="0">None</option>
+                <option value="0.50">Box 1 (£0.50)</option>
+                <option value="0.90">Box 2 (£0.90)</option>
+            </select>
+        </div>
+
+        <button onclick="calculateCost()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Calculate Cost</button>
+
+        <div id="result" class="mt-4 text-center text-lg font-semibold text-gray-800"></div>
+    </div>
+
+    <script>
+        function calculateCost() {
+            const weight = parseFloat(document.getElementById('weight').value) || 0;
+            const units = parseInt(document.getElementById('units').value) || 1;
+            const packaging = parseFloat(document.getElementById('packaging').value) || 0;
+
+            // Shipping cost based on weight (includes 1 pick)
+            let shippingCost = 0;
+            if (weight <= 2) {
+                shippingCost = 2.85;
+            } else if (weight <= 15) {
+                shippingCost = 3.59;
+            } else if (weight <= 30) {
+                shippingCost = 5.10;
+            } else {
+                shippingCost = 5.10; // Default for weights > 30kg
+            }
+
+            // Additional unit pick cost (£0.25 per unit beyond the first)
+            const additionalUnitsCost = units > 1 ? (units - 1) * 0.25 : 0;
+
+            // Total cost: shipping (includes 1 pick) + additional units + packaging
+            const totalCost = (shippingCost + additionalUnitsCost + packaging).toFixed(2);
+
+            // Display result
+            document.getElementById('result').innerHTML = `Total Cost: £${totalCost}`;
+        }
+    </script>
+</body>
+</html>
